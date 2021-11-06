@@ -12,7 +12,32 @@ class DetailRoute extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         child: Hero(
           tag: 'pirlo_image',
-          child: Image.asset('assets/images/pirlo.png'),
+          child: GestureDetector(
+            onTap: () => Navigator.pop(context),
+            child: Stack(
+              children: [
+                Opacity(
+                  opacity: 0.2,
+                  child: Image.asset('assets/images/pirlo.png'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: const [
+                      Text(
+                        "Title",
+                        style: TextStyle(fontSize: 30),
+                      ),
+                      Text(
+                        "Title",
+                        style: TextStyle(fontSize: 30),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       )),
     );

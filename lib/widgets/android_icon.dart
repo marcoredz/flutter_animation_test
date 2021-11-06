@@ -10,6 +10,7 @@ class AndroidIcon extends StatefulWidget {
 class _AndroidIconState extends State<AndroidIcon> with SingleTickerProviderStateMixin {
   late AnimationController _androidAC;
   late Animation _colorAnimation;
+  late Animation _sizeAnimation;
   //bool _androidIconToggled = false;
 
   @override
@@ -19,7 +20,18 @@ class _AndroidIconState extends State<AndroidIcon> with SingleTickerProviderStat
       duration: const Duration(milliseconds: 300),
     );
 
-    _colorAnimation = ColorTween(begin: Colors.grey, end: Colors.amberAccent).animate(_androidAC);
+    _colorAnimation =
+        ColorTween(begin: Colors.grey, end: Colors.orangeAccent.shade700).animate(_androidAC);
+    _sizeAnimation = TweenSequence([
+      TweenSequenceItem<double>(
+        tween: Tween(begin: 50, end: 70),
+        weight: 50,
+      ),
+      TweenSequenceItem<double>(
+        tween: Tween(begin: 70, end: 50),
+        weight: 50,
+      ),
+    ]).animate(_androidAC);
 
     super.initState();
   }
@@ -32,8 +44,8 @@ class _AndroidIconState extends State<AndroidIcon> with SingleTickerProviderStat
         return IconButton(
           icon: Icon(
             Icons.android,
-            size: 50,
             color: _colorAnimation.value,
+            size: _sizeAnimation.value,
           ),
           onPressed: () => _androidAC.isCompleted ? _androidAC.reverse() : _androidAC.forward(),
         );
