@@ -69,12 +69,17 @@ class _HomeState extends State<Home> {
                     color: Colors.black,
                   ),
                   tween: Tween<double>(begin: 0, end: 1),
-                  duration: const Duration(milliseconds: 1500),
+                  duration: const Duration(milliseconds: 700),
+                  curve: Curves.bounceInOut,
                   builder: (_, double val, child) {
-                    return Opacity(
-                      opacity: val,
+                    return Container(
+                      margin: EdgeInsets.only(top: val * 30),
                       child: child,
                     );
+                    // return Opacity(
+                    //   opacity: val,
+                    //   child: child,
+                    // );
                   },
                 )
               ],
