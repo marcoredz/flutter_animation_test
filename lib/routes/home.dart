@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_test/routes/detail_route.dart';
+import 'package:flutter_animation_test/widgets/android_icon.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatefulWidget {
@@ -43,6 +44,10 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const Center(
+              child: AndroidIcon(),
+            ),
+            const SizedBox(height: 10),
             GestureDetector(
               onTap: () => Navigator.push(
                 context,
