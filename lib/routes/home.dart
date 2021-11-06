@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation_test/routes/detail_route.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatefulWidget {
@@ -42,6 +43,18 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            GestureDetector(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const DetailRoute(),
+                ),
+              ),
+              child: Hero(
+                tag: 'pirlo_image',
+                child: Image.asset('assets/images/pirlo.png'),
+              ),
+            ),
             Row(
               children: [
                 TweenAnimationBuilder(
@@ -51,7 +64,7 @@ class _HomeState extends State<Home> {
                     color: Colors.black,
                   ),
                   tween: Tween<double>(begin: 0, end: 1),
-                  duration: const Duration(milliseconds: 1000),
+                  duration: const Duration(milliseconds: 1500),
                   builder: (_, double val, child) {
                     return Opacity(
                       opacity: val,
