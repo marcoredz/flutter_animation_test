@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation_test/cubit/switch_theme/switch_theme_cubit.dart';
 import 'package:flutter_animation_test/routes/animation_test.dart';
 import 'package:flutter_animation_test/routes/test_route.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatefulWidget {
@@ -14,6 +16,19 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          BlocBuilder<SwitchThemeCubit, bool>(
+            builder: (context, state) {
+              return Switch(
+                  value: state,
+                  onChanged: (value) {
+                    context.read<SwitchThemeCubit>().toggleSwitch(value);
+                  });
+            },
+          ),
+        ],
+      ),
       backgroundColor: Colors.amber.shade200,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 150),
