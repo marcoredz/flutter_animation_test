@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animation_test/routes/detail_route.dart';
+import 'package:flutter_animation_test/ui/routes/detail_route.dart';
 import 'package:flutter_animation_test/widgets/android_icon.dart';
 import 'package:google_fonts/google_fonts.dart';
 

@@ -1,14 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animation_test/ui/themes/app_themes.dart';
 
-class SwitchThemeCubit extends Cubit<bool> {
-  SwitchThemeCubit() : super(false);
+class SwitchThemeCubit extends Cubit<ThemeData> {
+  SwitchThemeCubit() : super(appThemeData[eThemes.amber] ?? ThemeData());
 
-  MaterialColor get primarySwatch {
-    return state ? Colors.purple : Colors.amber;
-  }
-
-  void toggleSwitch(bool value) {
-    emit(value);
+  void setTheme(eThemes newTheme) {
+    emit(appThemeData[newTheme] ?? ThemeData());
   }
 }
