@@ -12,9 +12,9 @@ class AnimationTest extends StatefulWidget {
 
 class _AnimationTestState extends State<AnimationTest> {
   /* container var */
-  double _width = 100;
+  final double _width = 100;
   double _height = 50;
-  double _margin = 0;
+  final double _margin = 0;
   Color _color = Colors.grey;
 
   bool _toggleAnimation = false;

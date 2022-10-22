@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_test/routes/animation_test.dart';
+import 'package:flutter_animation_test/routes/listview_route.dart';
 import 'package:flutter_animation_test/routes/test_route.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -63,6 +64,28 @@ class _HomeState extends State<Home> {
                   ),
                   child: Center(
                     child: Text("Animation test",
+                        style: GoogleFonts.quicksand(fontSize: 17, fontWeight: FontWeight.bold)),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 25),
+            Expanded(
+              child: GestureDetector(
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (builder) => const ListViewRoute(),
+                    )),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.amberAccent.shade400,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
+                  child: Center(
+                    child: Text("List view",
                         style: GoogleFonts.quicksand(fontSize: 17, fontWeight: FontWeight.bold)),
                   ),
                 ),
